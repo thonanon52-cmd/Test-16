@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Pickup Cambodia</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #f8f9fa;
+        color: #212529;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, #1f242d, #11141a);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        border-bottom: 3px solid #e50914;
+      }
+
+      header h1 {
+        font-size: 320%;
+        letter-spacing: 2px;
+        font-weight: 800px;
+        text-transform: uppercase;
+        /* អក្សរ B */
+      }
+
+      header p {
+        color: #6c757d;
+        margin-top: 3px;
+        /* គម្លាត */
+        font-size: 100%;
+      }
+
+      nav {
+        background: #11141a;
+        position: sticky;
+        top: 0px;
+        z-index: 1000px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        /* language kadal */
+        list-style: none;
+        border-bottom: 3px solid #e50914;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 25px;
+        color: #e0e0e0;
+        text-decoration: none;
+        /* dork line aksor */
+        text-transform: uppercase;
+        font-size: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .banner {
+        height: 500px;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1619642751034-765dfdf7c58e")
+            center/cover no-repeat;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .banner-text {
+        text-align: center;
+        color: white;
+      }
+
+      .banner-text h2 {
+        font-size: 300%;
+        margin-bottom: 10px;
+        text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .banner-text p {
+        margin-bottom: 25px;
+        /* dork khlea */
+        color: #ffffff;
+      }
+
+      .banner-text button {
+        padding: 25px;
+        border: none;
+        background: #e50914;
+        color: white;
+        font-size: 17px;
+        text-transform: uppercase;
+        /* font */
+        border-radius: 30px;
+        /* som mul */
+      }
+
+      .banner-text button:hover {
+        background: #b80710;
+      }
+
+      .search {
+        max-width: 700px;
+        margin: -40px 50px;
+        /* style search */
+        background: white;
+        padding: 20px;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+      }
+
+      .search input {
+        flex: 1;
+        padding: 15px 25px;
+        /* komleat */
+        font-size: 15px;
+      }
+
+      .search button {
+        padding: 15px 35px;
+        background: #11141a;
+        border: none;
+        color: white;
+        font-weight: bold;
+        /* font bi */
+        border-radius: 40px;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin: 50px;
+        position: relative;
+
+        text-transform: uppercase;
+        /* font */
+      }
+
+      .title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #e50914;
+        margin: 10px auto 0 auto;
+        border-radius: 2px;
+      }
+
+      .car-container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        /* kom leat photo */
+      }
+
+      .card {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #eee;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        /* reaction all */
+      }
+
+      .card-img-wrapper {
+        overflow: hidden;
+        /* kom oy photo ot smer */
+        position: relative;
+        height: 200px;
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* photo jbas */
+        transition: all 0.3s ease;
+      }
+
+      .card:hover img {
+        transform: scale(1.08);
+      }
+
+      .card-body {
+        padding: 20px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        /* reab jea culum */
+        flex-grow: 1;
+      }
+
+      .card h3 {
+        font-size: 20px;
+        margin-bottom: 7px;
+        /* kom leat aksor */
+        color: #11141a;
+      }
+
+      .card .tag {
+        font-size: 13px;
+        color: #6c757d;
+        margin-bottom: 15px;
+      }
+
+      .price {
+        font-size: 20px;
+        color: #e50914;
+        font-weight: 700;
+        margin-bottom: 15px;
+        /* komleat aksor */
+        /*                                  */
+      }
+
+      .card button {
+        width: 100%;
+        padding: 12px;
+        background: #f8f9fa;
+        color: #11141a;
+        border: 1px solid #ddd;
+        font-weight: 600;
+        border-radius: 8px;
+      }
+
+      .card button:hover {
+        border-color: #e50914;
+      }
+
+      .about,
+      .contact {
+        max-width: 800px;
+        margin: 60px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .about h2,
+      .contact h2 {
+        font-size: 28.8px;
+        margin-bottom: 20px;
+        color: #11141a;
+        border-left: 4px solid #e50914;
+        padding-left: 15px;
+      }
+
+      .about p {
+        color: #555;
+        font-size: 16.8px;
+      }
+
+      .contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .contact input,
+      .contact textarea {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        background: #fdfdfd;
+      }
+
+      .contact input:focus,
+      .contact textarea:focus {
+        border-color: #e50914;
+        box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+      }
+
+      .contact button {
+        padding: 14px;
+        background: #e50914;
+        color: white;
+        font-weight: bold;
+        font-size: 10px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+      }
+
+      .contact button:hover {
+        background: #b80710;
+      }
+
+      footer {
+        height: 110px;
+        background: #11141a;
+        color: #b6aeae;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 14px;
+        border-top: 1px solid #222;
+      }
+    </style>
+    <link rel="styleshet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Ford Pickup Cambodia</h1>
+      <p>The Ultimate Tough Trucks Shop</p>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#cars">Pickups</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="banner">
+      <div class="banner-text">
+        <h2>Built Ford Tough</h2>
+        <p>Find Your Perfect Offroad Companion</p>
+        <button onclick="document.getElementById('cars').scrollIntoView()">
+          Explore Trucks
+        </button>
+      </div>
+    </section>
+
+    <section class="search">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Raptor, Wildtrak, XLT..."
+      />
+      <button onclick="searchCar()">Search</button>
+    </section>
+
+    <section id="cars">
+      <h2 class="title">Our Pickup Trucks</h2>
+      <div class="car-container">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="../image1/download.jpeg" alt="Ford Ranger Raptor" />
+          </div>
+          <div class="card-body">
+            <h3>Ford Ranger Raptor</h3>
+            <p class="tag">Performance Pickup • 4x4 Offroad</p>
+            <p class="price">$79,000</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="../image1/download (1).jpeg" alt="Ford Ranger Wildtrak" />
+          </div>
+          <div class="card-body">
+            <h3>Ford Ranger</h3>
+            <p class="tag">Premium Edition • Smart Tech</p>
+            <p class="price">$55,000</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="../image1/download (3).jpeg" alt="Ford F-150 Raptor" />
+          </div>
+          <div class="card-body">
+            <h3>Ford F-150 Raptor</h3>
+            <p class="tag">Super Crew • V6 Twin-Turbo</p>
+            <p class="price">$145,000</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="../image1/download (4).jpeg" alt="Ford Ranger XLT" />
+          </div>
+          <div class="card-body">
+            <h3>Ford Ranger XLT</h3>
+            <p class="tag">Daily Drive • Heavy Duty</p>
+            <p class="price">$42,000</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img
+              src="../image1/EverestSport-Meteor-Grey.png"
+              alt="Ford Ranger Everest"
+            />
+          </div>
+          <div class="card-body">
+            <h3>Ford Ranger Everest</h3>
+            <p class="tag">Special Offroad Package</p>
+            <p class="price">$62,000</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf"
+              alt="Ford F-150 Lariat"
+            />
+          </div>
+          <div class="card-body">
+            <h3>Ford F-150 Lariat</h3>
+            <p class="tag">Luxury Truck • Maximum Comfort</p>
+            <p class="price">$115,000</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About Us</h2>
+      <p>
+        Ford Pickup Cambodia is one of the leading specialists in
+        high-performance pickup trucks in Cambodia. We are dedicated to
+        providing customers with premium-quality Ford vehicles, including the
+        Ford Ranger Raptor, Wildtrak, XLT, XLS, and the powerful F-150 series.
+        Every vehicle is carefully selected and designed to meet the needs of
+        Cambodian drivers, whether for personal use, business, construction,
+        agriculture, or off-road adventures. Our goal is to deliver not only
+        reliable vehicles but also outstanding customer service that builds
+        long-term trust and satisfaction. At Ford Pickup Cambodia, we believe
+        that buying a vehicle is more than just making a purchase—it is an
+        investment in quality, safety, and performance. Therefore, we ensure
+        that every customer receives professional consultation, transparent
+        pricing, and detailed information before making a decision. Our
+        experienced sales team is always ready to help customers choose the best
+        pickup truck according to their budget and lifestyle. We also provide
+        comprehensive after-sales services, including vehicle maintenance,
+        genuine Ford spare parts, warranty support, repair services, and
+        technical assistance by skilled and experienced technicians. Customer
+        satisfaction is our highest priority, and we continuously improve our
+        services to ensure every customer enjoys a smooth and worry-free
+        ownership experience. Our commitment is to become the most trusted Ford
+        pickup dealership in Cambodia by offering high-quality vehicles,
+        competitive prices, flexible financing options, and exceptional customer
+        care.
+      </p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <form onsubmit="return sendMessage();">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea
+          rows="5"
+          placeholder="Which Ford model are you interested in?"
+          required
+        ></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2026 Ford Pickup Cambodia. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
